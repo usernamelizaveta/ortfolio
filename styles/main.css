@@ -6,8 +6,8 @@
 
 html, body {
     font-family: 'Inter', sans-serif;
+    background: #D0D0D0;
     color: #111;
-    background: #C2C2C2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -16,329 +16,220 @@ html, body {
 .hero {
     position: relative;
     width: 100vw;
-    min-height: 100vh;
-    background: #C2C2C2;
+    height: 100vh;
     overflow: hidden;
+    background: #D0D0D0;
 }
 
-/* Photo — ~50% of viewport, center-right */
+/* =============== Photo =============== */
 .hero__photo {
     position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 33.33%;
-    height: 60%;
-    background-image: url('../assets/images/hero-photo.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
-
-/* =============== Watermark name =============== */
-.hero__name {
-    position: absolute;
-    top: 38%;
-    left: 80px;
-    right: 80px;
-    max-width: 60vw;
-    transform: translateY(-50%);
-    margin-bottom: 80px;
+    width: 50%;
+    height: 90%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-30%);
+    object-fit: cover;
+    object-position: center top;
     z-index: 1;
-    pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    line-height: 0.85;
-    letter-spacing: -0.03em;
 }
 
-.hero__name-line {
-    display: block;
-    font-weight: 800;
-    font-size: clamp(80px, 15.5vw, 220px);
-    color: rgba(255, 255, 255, 0.55);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
-    text-stroke: 1px rgba(255, 255, 255, 0.9);
-    white-space: nowrap;
-}
-
-.hero__name-line--left  { text-align: left; }
-.hero__name-line--right { text-align: right; }
-
-/* =============== Top-left pill =============== */
-.hero__badge {
+/* =============== Oversized name =============== */
+.hero-name {
     position: absolute;
-    top: 40px;
-    left: 80px;
+    top: 22%;
+    left: 0;
+    right: 0;
     z-index: 2;
-    background: #000;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 400;
-    padding: 16px 24px;
-    border-radius: 28px;
-    line-height: 1.35;
+    pointer-events: none;
+    line-height: 0.85;
 }
 
-.hero__badge div { white-space: nowrap; }
+.hero-name__line {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 14vw;
+    line-height: 0.85;
+    color: rgba(255, 255, 255, 0.45);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+}
+
+.hero-name__line--left {
+    text-align: left;
+    padding-left: 40px;
+}
+
+.hero-name__line--right {
+    text-align: right;
+    padding-right: 40px;
+}
+
+/* =============== Top-left badge =============== */
+.badge {
+    position: absolute;
+    top: 28px;
+    left: 40px;
+    z-index: 10;
+    background: #0f0f0f;
+    color: #fff;
+    border-radius: 40px;
+    padding: 12px 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 230px;
+}
 
 /* =============== Top-right cluster =============== */
-.hero__top-right {
+.top-right {
     position: absolute;
-    top: 40px;
-    right: 80px;
-    z-index: 2;
+    top: 28px;
+    right: 40px;
+    z-index: 10;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
+    align-items: flex-start;
+    gap: 8px;
 }
 
-.hero__languages-wrap {
-    display: flex;
-    align-items: stretch;
-    gap: 12px;
+.languages {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid #111;
+    border-radius: 14px;
+    padding: 12px 18px;
 }
 
-.languages-card {
-    background: transparent;
-    border: 1px solid #000;
-    border-radius: 16px;
-    padding: 14px 20px;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    color: #111;
-}
-
-.languages-card__label {
-    font-size: 12px;
+.languages__label {
+    font-size: 20px;
     font-weight: 400;
-    color: #444;
-    margin-bottom: 4px;
-}
-
-.languages-card__item {
-    font-size: 14px;
-    font-weight: 500;
     color: #111;
+    margin-bottom: 6px;
+    line-height: 1.1;
 }
 
-.languages-card__item span {
-    color: #666;
-    font-weight: 400;
-    margin-right: 4px;
+.languages__item {
+    font-size: 15px;
+    color: #111;
+    margin-bottom: 2px;
+    line-height: 1.3;
+}
+
+.languages__item:last-child {
+    margin-bottom: 0;
 }
 
 .globe-btn {
-    width: 54px;
-    height: 54px;
+    width: 50px;
+    height: 50px;
+    background: #111;
     border-radius: 50%;
-    background: #000;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     text-decoration: none;
-    align-self: center;
     flex-shrink: 0;
 }
 
-.globe-btn__icon {
-    width: 24px;
-    height: 24px;
-    color: #fff;
-}
-
-.hero__role-label {
-    font-size: 16px;
-    font-weight: 500;
+/* =============== Role label =============== */
+.role-label {
+    position: absolute;
+    top: 155px;
+    right: 40px;
+    z-index: 10;
+    font-size: 22px;
+    font-weight: 400;
     color: #111;
 }
 
-/* =============== Bottom container =============== */
-.hero__bottom {
+/* =============== Bio =============== */
+.bio {
     position: absolute;
-    left: 80px;
-    right: 80px;
-    bottom: 40px;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.hero__bio {
-    color: #111111;
+    top: 44%;
+    left: 40px;
+    z-index: 10;
+    max-width: 360px;
     font-size: 16px;
     font-weight: 400;
-    line-height: 1.5;
-    max-width: 560px;
+    color: #111111;
+    line-height: 1.65;
 }
 
-.hero__cards {
+/* =============== Bottom cards =============== */
+.bottom-cards {
+    position: absolute;
+    bottom: 28px;
+    left: 40px;
+    right: 40px;
+    z-index: 10;
     display: flex;
-    gap: 16px;
+    gap: 14px;
     align-items: stretch;
 }
 
 /* Current role card */
 .role-card {
-    flex: 0 0 58%;
+    flex: 0 0 59%;
     background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     border-radius: 16px;
-    padding: 28px 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    padding: 26px 30px;
 }
 
 .role-card__title {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 300;
     color: #111;
-    line-height: 1.1;
+    margin-bottom: 14px;
+    line-height: 1;
 }
 
 .role-card__row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
+    align-items: center;
+    font-size: 15px;
+    color: #111;
 }
-
-.role-card__company { font-size: 15px; }
-.role-card__company strong { font-weight: 700; }
-.role-card__company span   { font-weight: 400; color: #333; margin-left: 4px; }
 
 .role-card__date {
     font-size: 14px;
-    color: #555;
-    font-weight: 400;
+    color: #111;
 }
 
 .role-card__skills {
+    margin-top: 10px;
     font-size: 13px;
-    color: #555;
-    font-weight: 400;
-    line-height: 1.65;
+    color: #444;
+    line-height: 1.8;
 }
 
 /* Focus card */
 .focus-card {
-    position: relative;
-    flex: 0 0 calc(42% - 16px);
-    background: rgba(0, 0, 0, 0.5);
+    flex: 1;
+    background: rgba(30, 30, 30, 0.68);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 16px;
-    padding: 28px 32px;
-    color: #fff;
+    padding: 26px 30px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: flex-end;
 }
 
 .focus-card__icon {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
+    margin-bottom: 12px;
 }
 
 .focus-card__title {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 300;
-    line-height: 1.1;
     color: #fff;
+    margin-bottom: 10px;
+    line-height: 1;
 }
 
 .focus-card__body {
     font-size: 14px;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #fff;
-}
-
-/* =============== Responsive =============== */
-@media (max-width: 1100px) {
-    .hero__name-line { font-size: clamp(64px, 14vw, 160px); }
-    .role-card__title,
-    .focus-card__title { font-size: 26px; }
-    .role-card { padding: 24px 26px; }
-    .focus-card { padding: 24px 26px; }
-}
-
-@media (max-width: 900px) {
-    .hero { min-height: auto; padding-bottom: 32px; }
-
-    .hero__photo {
-        position: relative;
-        top: auto;
-        right: auto;
-        transform: none;
-        width: 100%;
-        height: 60vh;
-        margin-top: 200px;
-    }
-
-    .hero__name {
-        top: auto;
-        bottom: auto;
-        left: 32px;
-        right: 32px;
-        transform: none;
-        position: relative;
-        z-index: 3;
-        margin-top: 32px;
-    }
-
-    .hero__name-line { font-size: clamp(48px, 13vw, 110px); }
-
-    .hero__badge {
-        top: 32px;
-        left: 32px;
-        font-size: 14px;
-        padding: 14px 20px;
-    }
-
-    .hero__top-right {
-        top: 32px;
-        right: 32px;
-    }
-
-    .hero__bottom {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin: 32px;
-    }
-
-    .hero__cards { flex-direction: column; }
-
-    .role-card,
-    .focus-card {
-        flex: 1 1 auto;
-        width: 100%;
-    }
-}
-
-@media (max-width: 560px) {
-    .hero__badge { left: 20px; top: 20px; font-size: 13px; padding: 12px 18px; }
-    .hero__top-right { right: 20px; top: 20px; }
-    .hero__bottom { margin: 24px 20px; }
-    .languages-card { min-width: 150px; padding: 12px 16px; }
-    .globe-btn { width: 48px; height: 48px; }
-    .role-card,
-    .focus-card { padding: 22px; }
-    .role-card__title,
-    .focus-card__title { font-size: 22px; }
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.7;
 }

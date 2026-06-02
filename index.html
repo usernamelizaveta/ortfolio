@@ -11,67 +11,60 @@
 </head>
 <body>
     <section class="hero">
-        <div class="hero__photo" aria-hidden="true"></div>
+        <img class="hero__photo" src="assets/images/hero-photo.png" alt="">
 
-        <h1 class="hero__name" aria-label="Konovalova Yelyzaveta">
-            <span class="hero__name-line hero__name-line--left">KONOVALOVA</span>
-            <span class="hero__name-line hero__name-line--right">YELYZAVETA</span>
-        </h1>
-
-        <div class="hero__badge">
-            <div>4+ yrs experience</div>
-            <div>20+ products shipped</div>
-            <div>Mentor &amp; UX thinker</div>
+        <div class="hero-name">
+            <span class="hero-name__line hero-name__line--left">KONOVALOVA</span>
+            <span class="hero-name__line hero-name__line--right">YELYZAVETA</span>
         </div>
 
-        <div class="hero__top-right">
-            <div class="hero__languages-wrap">
-                <div class="languages-card">
-                    <div class="languages-card__label">Languages</div>
-                    <div class="languages-card__item"><span>1/</span> English</div>
-                    <div class="languages-card__item"><span>2/</span> Ukrainian</div>
-                </div>
-                <a href="mailto:yelyzaveta@email.com" class="globe-btn" aria-label="Contact via email">
-                    <svg class="globe-btn__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
-                        <ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/>
-                        <path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/>
-                    </svg>
-                </a>
+        <div class="badge">
+            4+ yrs experience · 20+ products shipped · Mentor &amp; UX thinker
+        </div>
+
+        <div class="top-right">
+            <div class="languages">
+                <div class="languages__label">Languages</div>
+                <div class="languages__item">1/ English</div>
+                <div class="languages__item">2/ Ukrainian</div>
             </div>
-            <div class="hero__role-label">UX/UI designer</div>
+            <a href="mailto:yelyzaveta@email.com" class="globe-btn" aria-label="Contact via email">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </a>
         </div>
 
-        <div class="hero__bottom">
-            <p class="hero__bio">
-                I'm a Senior UI/UX Designer with 5+ years of experience creating web platforms, mobile apps, and scalable design systems
-            </p>
+        <div class="role-label">UX/UI designer</div>
 
-            <div class="hero__cards">
-                <div class="role-card">
-                    <div class="role-card__title">Current role</div>
-                    <div class="role-card__row">
-                        <div class="role-card__company">
-                            <strong>Trinetix</strong> <span>UI/UX Designer</span>
-                        </div>
-                        <div class="role-card__date">08.2021 – Now</div>
-                    </div>
-                    <div class="role-card__skills">
-                        UX research · User flows · UI for platforms · Hypothesis testing · Accessibility · Dev collaboration · Focus on product metrics · Clean &amp; scalable design · Prototyping &amp; testing · Wireframing · Design systems · Responsive &amp; Adaptive design · Stakeholder communication · HTML/CSS understanding
-                    </div>
-                </div>
+        <p class="bio">
+            I'm a Senior UI/UX Designer<br>with 5+ years of experience creating web platforms, mobile apps,<br>and scalable design systems
+        </p>
 
-                <div class="focus-card">
-                    <svg class="focus-card__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <circle cx="22" cy="28" r="14" stroke="#ffffff" stroke-width="1.5"/>
-                        <circle cx="42" cy="28" r="14" stroke="#ffffff" stroke-width="1.5"/>
-                        <circle cx="32" cy="42" r="14" stroke="#ffffff" stroke-width="1.5"/>
-                    </svg>
-                    <div class="focus-card__title">Focus</div>
-                    <p class="focus-card__body">
-                        on clean, user-centered interfaces driven by research, product thinking, and close collaboration to solve real user problems with smart, accessible design
-                    </p>
+        <div class="bottom-cards">
+            <div class="role-card">
+                <h3 class="role-card__title">Current role</h3>
+                <div class="role-card__row">
+                    <div>
+                        <span style="font-weight:700">Trinetix</span><span style="font-weight:400"> UI/UX Designer</span>
+                    </div>
+                    <div class="role-card__date">08.2021 – Now</div>
                 </div>
+                <div class="role-card__skills">
+                    UX research · User flows · UI for platforms · Hypothesis testing · Accessibility · Dev collaboration · Focus on product metrics · Clean &amp; scalable design · Prototyping &amp; testing · Wireframing · Design systems · Responsive &amp; Adaptive design · Stakeholder communication · HTML/CSS understanding
+                </div>
+            </div>
+
+            <div class="focus-card">
+                <svg class="focus-card__icon" width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="38" r="24" stroke="white" stroke-width="1" opacity="0.85"/>
+                    <circle cx="58" cy="38" r="24" stroke="white" stroke-width="1" opacity="0.85"/>
+                    <circle cx="45" cy="58" r="24" stroke="white" stroke-width="1" opacity="0.85"/>
+                </svg>
+                <h3 class="focus-card__title">Focus</h3>
+                <p class="focus-card__body">on clean, user-centered interfaces driven by research, product thinking, and close collaboration to solve real user problems with smart, accessible design</p>
             </div>
         </div>
     </section>
