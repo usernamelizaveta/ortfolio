@@ -24,11 +24,12 @@ html, body {
 /* =============== Photo =============== */
 .hero__photo {
     position: absolute;
-    width: 50%;
-    height: 90%;
+    width: 33%;
+    height: 60%;
     left: 50%;
-    top: 0;
-    transform: translateX(-30%);
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%);
     object-fit: cover;
     object-position: center top;
     z-index: 1;
@@ -37,7 +38,7 @@ html, body {
 /* =============== Oversized name =============== */
 .hero-name {
     position: absolute;
-    top: 22%;
+    top: 25%;
     left: 0;
     right: 0;
     z-index: 2;
@@ -49,27 +50,26 @@ html, body {
     display: block;
     font-family: 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 14vw;
+    font-size: 9vw;
     line-height: 0.85;
-    color: rgba(255, 255, 255, 0.45);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .hero-name__line--left {
     text-align: left;
-    padding-left: 40px;
+    padding-left: 80px;
 }
 
 .hero-name__line--right {
     text-align: right;
-    padding-right: 40px;
+    padding-right: 80px;
 }
 
 /* =============== Top-left badge =============== */
 .badge {
     position: absolute;
-    top: 28px;
-    left: 40px;
+    top: 32px;
+    left: 80px;
     z-index: 10;
     background: #0f0f0f;
     color: #fff;
@@ -78,14 +78,13 @@ html, body {
     font-size: 13px;
     line-height: 1.5;
     text-align: center;
-    max-width: 230px;
 }
 
 /* =============== Top-right cluster =============== */
 .top-right {
     position: absolute;
-    top: 28px;
-    right: 40px;
+    top: 32px;
+    right: 80px;
     z-index: 10;
     display: flex;
     align-items: flex-start;
@@ -93,7 +92,7 @@ html, body {
 }
 
 .languages {
-    background: rgba(255, 255, 255, 0.9);
+    background: transparent;
     border: 1.5px solid #111;
     border-radius: 14px;
     padding: 12px 18px;
@@ -135,7 +134,7 @@ html, body {
 .role-label {
     position: absolute;
     top: 155px;
-    right: 40px;
+    right: 80px;
     z-index: 10;
     font-size: 22px;
     font-weight: 400;
@@ -146,7 +145,7 @@ html, body {
 .bio {
     position: absolute;
     top: 44%;
-    left: 40px;
+    left: 80px;
     z-index: 10;
     max-width: 360px;
     font-size: 16px;
@@ -158,9 +157,9 @@ html, body {
 /* =============== Bottom cards =============== */
 .bottom-cards {
     position: absolute;
-    bottom: 28px;
-    left: 40px;
-    right: 40px;
+    bottom: 32px;
+    left: 80px;
+    right: 80px;
     z-index: 10;
     display: flex;
     gap: 14px;
@@ -169,14 +168,14 @@ html, body {
 
 /* Current role card */
 .role-card {
-    flex: 0 0 59%;
+    flex: 1;
     background: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     padding: 26px 30px;
 }
 
 .role-card__title {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 300;
     color: #111;
     margin-bottom: 14px;
@@ -213,15 +212,17 @@ html, body {
     padding: 26px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
 }
 
 .focus-card__icon {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
 .focus-card__title {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: 300;
     color: #fff;
     margin-bottom: 10px;
