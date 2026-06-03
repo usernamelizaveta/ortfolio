@@ -12,252 +12,201 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* =============== HERO =============== */
 .hero {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: #C8C8C8;
+  width: 100%;
+  line-height: 0;
+  display: block;
 }
 
-/* =============== Photo =============== */
-.hero__photo {
-    position: absolute;
-    width: 45%;
-    height: 100%;
-    left: 50%;
-    top: 0;
-    transform: translateX(-20%);
-    object-fit: cover;
-    object-position: center top;
-    z-index: 1;
+.hero__img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* =============== Name lines =============== */
-.name-konovalova {
-    position: absolute;
-    left: 74px;
-    top: 20vh;
-    font-family: 'Roboto Flex', sans-serif;
-    font-size: clamp(80px, 11.5vw, 157px);
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.74);
-    -webkit-text-stroke: 1px #FFF;
-    text-stroke: 1px #FFF;
-    opacity: 0.61;
-    text-transform: uppercase;
-    line-height: normal;
-    letter-spacing: 1.57px;
-    z-index: 2;
-    white-space: nowrap;
-    margin: 0;
-    pointer-events: none;
+/* ===== CASES SECTION ===== */
+.cases {
+  background: #ffffff;
+  padding: 80px;
+  padding-top: 60px;
 }
 
-.name-yelyzaveta {
-    position: absolute;
-    right: 82px;
-    bottom: 34vh;
-    font-family: 'Roboto Flex', sans-serif;
-    font-size: clamp(80px, 11.5vw, 157px);
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.74);
-    -webkit-text-stroke: 1px #FFF;
-    text-stroke: 1px #FFF;
-    opacity: 0.61;
-    text-transform: uppercase;
-    line-height: normal;
-    letter-spacing: 3.14px;
-    backdrop-filter: blur(64px);
-    -webkit-backdrop-filter: blur(64px);
-    z-index: 2;
-    white-space: nowrap;
-    margin: 0;
-    pointer-events: none;
+.cases__heading {
+  font-family: Inter, sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #000;
+  letter-spacing: 0.52px;
+  margin: 0 0 48px 0;
+  line-height: normal;
 }
 
-/* =============== Badge (top-left) =============== */
-.badge {
-    position: absolute;
-    top: 28px;
-    left: 80px;
-    z-index: 10;
-    background: #111;
-    color: #FFF;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: center;
-    border-radius: 40px;
-    padding: 14px 24px;
-    width: 252px;
+.cases__grid {
+  display: flex;
+  flex-direction: column;
 }
 
-/* =============== Top-right cluster =============== */
-.top-right {
-    position: absolute;
-    top: 28px;
-    right: 80px;
-    z-index: 10;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+.cases__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 48px 0;
 }
 
-.languages {
-    border: 1px solid #000;
-    border-radius: 14px;
-    padding: 12px 20px;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
+.cases__divider {
+  height: 1px;
+  background: #EAEAEA;
+  width: 100%;
 }
 
-.languages__label {
-    font-family: 'Inter', sans-serif;
-    font-size: 26px;
-    font-weight: 300;
-    color: #000;
-    letter-spacing: 0.52px;
-    line-height: 1.1;
+.cases__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  cursor: pointer;
 }
 
-.languages__item {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #000;
-    line-height: 24px;
+.cases__item--empty {
+  visibility: hidden;
+  cursor: default;
 }
 
-.globe-btn {
-    width: 44px;
-    height: 44px;
-    background: #111;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    flex-shrink: 0;
+.cases__item:hover .cases__title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-/* =============== Role label =============== */
-.role-label {
-    position: absolute;
-    right: 80px;
-    top: 140px;
-    font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #000;
-    z-index: 10;
+.cases__item:hover .cases__view {
+  border-bottom: 1px solid #000;
+  gap: 6px;
 }
 
-/* =============== Bio =============== */
-.bio {
-    position: absolute;
-    left: 79px;
-    bottom: 38vh;
-    width: 333px;
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-    color: #000;
-    z-index: 10;
+.cases__item:hover .cases__view::after {
+  opacity: 1;
 }
 
-/* =============== Current role card =============== */
-.role-card {
-    position: absolute;
-    left: 80px;
-    bottom: 39px;
-    width: 713px;
-    height: 187px;
-    padding: 20px 26px;
-    border-radius: 20px;
-    border: 1px solid #FFF;
-    background: rgba(255, 255, 255, 0.80);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
-    z-index: 10;
-    box-sizing: border-box;
+.cases__thumb {
+  width: 100%;
+  aspect-ratio: 283 / 170;
+  border-radius: 12px;
+  overflow: hidden;
+  background: lightgray;
 }
 
-.role-card__title {
-    font-family: 'Inter', sans-serif;
-    font-size: 26px;
-    font-weight: 300;
-    color: #000;
-    margin: 0;
-    line-height: 1.2;
+.cases__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-.role-card__row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: baseline;
-    font-family: 'Inter', sans-serif;
+.cases__title {
+  font-family: Inter, sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: #000;
+  letter-spacing: 0.52px;
+  margin: 0;
+  line-height: normal;
 }
 
-.role-card__skills {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    color: #000;
+.cases__tags {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  line-height: 24px;
+  margin: 0;
 }
 
-/* =============== Focus card =============== */
-.focus-card {
-    position: absolute;
-    right: 80px;
-    bottom: 39px;
-    width: 469px;
-    height: 187px;
-    padding: 20px;
-    border-radius: 20px;
-    border: 1px solid #C1C1C1;
-    background: rgba(0, 0, 0, 0.13);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 11px;
-    z-index: 10;
-    box-sizing: border-box;
+.cases__view {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  line-height: 30px;
+  text-decoration: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, gap 0.3s ease;
 }
 
-.focus-card__icon {
-    flex-shrink: 0;
+.cases__view::after {
+  content: '→';
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: 400;
 }
 
-.focus-card__title {
-    font-family: 'Inter', sans-serif;
-    font-size: 26px;
-    font-weight: 300;
-    color: #FFF;
-    margin: 0;
-    align-self: flex-start;
-    line-height: 1.2;
+/* ===== CASE STUDY HEADER ===== */
+.case-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 86px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.13);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid #C1C1C1;
+  box-sizing: border-box;
+  z-index: 100;
 }
 
-.focus-card__body {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    color: rgba(255, 255, 255, 0.85);
-    align-self: flex-start;
+.case-header__title {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+}
+
+.case-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.case-header__arrow {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.case-header__arrow:hover {
+  border-bottom: 1px solid #000;
+}
+
+.case-header__close {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.case-header__close:hover {
+  border-bottom: 1px solid #000;
 }
