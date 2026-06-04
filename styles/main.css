@@ -210,3 +210,9 @@ html, body {
 .case-header__close:hover {
   border-bottom: 1px solid #000;
 }
+
+.case-header__title,
+.case-header__arrow,
+.case-header__close {
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
