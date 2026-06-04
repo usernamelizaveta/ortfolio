@@ -61,11 +61,11 @@
     .card-layer--1 { z-index: 1; top: 10%; }
     .card-layer--2 { z-index: 2; top: -5%; }
 
-    /* ── SECTION 2+3: PHOTO + TEXT ── */
+    /* ── SECTION 2: PHOTO + TEXT + DIAGRAM (UNIFIED) ── */
     .photo-section {
       position: relative;
-      height: 300vh;
-      background: #000;
+      height: 200vh;
+      background: #fff;
     }
 
     .photo-sticky {
@@ -74,6 +74,14 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
+    }
+
+    .photo-white-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff;
+      z-index: 0;
     }
 
     .photo-bg {
@@ -87,7 +95,8 @@
 
     .photo-text {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
       display: flex;
@@ -96,6 +105,7 @@
       gap: 20px;
       width: 100%;
       pointer-events: none;
+      will-change: transform;
     }
 
     .photo-word {
@@ -111,8 +121,58 @@
       height: auto;
     }
 
+    .photo-diagram {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 160px);
+      max-width: 1400px;
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      top: 52%;
+      max-height: 45vh;
+      overflow: hidden;
+    }
+
+    .photo-diagram img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+      display: block;
+    }
+
     #wDesign  { transform: translateX(-150vw); opacity: 0; }
     #wProcess { transform: translateX(150vw);  opacity: 0; }
+
+    .diagram-section {
+      width: 100%;
+      background: #fff;
+      padding: 80px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .diagram-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 1400px;
+    }
+
+    .understand-section {
+      width: 100%;
+      background: #fff;
+    }
+
+    .understand-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -138,16 +198,18 @@
     </div>
   </section>
 
-  <!-- SECTION 2+3: PHOTO + TEXT -->
+  <!-- SECTION 2: PHOTO + TEXT + DIAGRAM (UNIFIED) -->
   <section class="photo-section" id="photoSection">
     <div class="photo-sticky">
 
       <img src="../assets/images/tax-pulse/scroll-photo.png"
-           class="photo-bg" alt="Design process">
+           class="photo-bg" id="singlePhoto" alt="Design process">
 
-      <div class="photo-text">
+      <div class="photo-white-bg"></div>
+
+      <div class="photo-text" id="textBlock">
         <div class="photo-word" id="wDesign">
-          <svg xmlns="http://www.w3.org/2000/svg" width="842" height="264" viewBox="0 0 842 264" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="842" height="264" viewBox="0 0 842 264" fill="none" id="svgDesign">
             <path d="M107.617 2.49842H145.061V210.7H110.668V193.767C101.237 207.277 86.5372 214.032 66.5671 214.032C47.3366 214.032 31.4345 207.277 18.8607 193.767C6.28689 180.072 0 162.86 0 142.133C0 121.405 6.28689 104.286 18.8607 90.776C31.4345 77.081 47.3366 70.2334 66.5671 70.2334C83.9485 70.2334 97.6317 75.693 107.617 86.612V2.49842ZM98.1865 169.893C104.843 163.23 108.172 153.977 108.172 142.133C108.172 130.288 104.843 121.035 98.1865 114.372C91.5297 107.525 83.3013 104.101 73.5012 104.101C63.3312 104.101 54.8254 107.617 47.9838 114.65C41.3271 121.682 37.9987 130.751 37.9987 141.855C37.9987 153.144 41.3271 162.305 47.9838 169.338C54.6405 176.37 63.1463 179.886 73.5012 179.886C83.4862 179.886 91.7147 176.555 98.1865 169.893Z" fill="white"/>
             <path d="M308.401 154.625H212.157C214.375 163.323 218.813 170.078 225.47 174.89C232.312 179.516 240.725 181.83 250.71 181.83C264.208 181.83 276.967 177.203 288.986 167.95L304.518 193.489C288.062 207.184 269.756 214.032 249.601 214.032C228.521 214.402 210.585 207.554 195.792 193.489C181.184 179.239 174.065 162.12 174.435 142.133C174.065 122.33 180.999 105.304 195.237 91.0536C209.475 76.8034 226.487 69.8633 246.272 70.2334C265.133 70.2334 280.573 76.3407 292.592 88.5552C304.796 100.77 310.898 115.945 310.898 134.082C310.898 140.744 310.066 147.592 308.401 154.625ZM212.157 128.252H274.563C274.378 119.924 271.42 113.262 265.688 108.265C260.14 103.083 253.206 100.492 244.885 100.492C236.934 100.492 230 102.991 224.083 107.987C218.166 112.984 214.191 119.739 212.157 128.252Z" fill="white"/>
             <path d="M327.633 187.382L346.493 164.618C358.328 177.018 371.179 183.218 385.047 183.218C390.224 183.218 394.385 182.292 397.528 180.442C400.857 178.406 402.521 175.537 402.521 171.836C402.521 169.06 401.504 166.932 399.47 165.451C397.621 163.786 393.922 161.75 388.375 159.344L373.675 153.237C360.546 147.87 351.024 142.04 345.107 135.748C339.189 129.27 336.231 121.127 336.231 111.319C336.231 98.5489 340.854 88.5552 350.099 81.3375C359.345 73.9348 371.548 70.2334 386.711 70.2334C407.051 70.2334 423.508 77.081 436.082 90.776L417.221 113.817C407.975 105.119 397.713 100.77 386.434 100.77C376.633 100.77 371.733 104.008 371.733 110.486C371.733 113.077 372.75 115.205 374.784 116.871C376.818 118.536 380.609 120.48 386.156 122.7L399.47 128.252C413.153 133.804 422.953 139.727 428.87 146.019C434.972 152.311 438.023 160.362 438.023 170.17C438.023 183.865 432.938 194.599 422.768 202.372C412.783 210.145 400.024 214.032 384.492 214.032C359.899 214.032 340.946 205.148 327.633 187.382Z" fill="white"/>
@@ -157,7 +219,7 @@
           </svg>
         </div>
         <div class="photo-word" id="wProcess">
-          <svg xmlns="http://www.w3.org/2000/svg" width="979" height="190" viewBox="0 0 979 190" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="979" height="190" viewBox="0 0 979 190" fill="none" id="svgProcess">
             <path d="M125.746 20.5081C138.487 33.9863 144.857 50.9724 144.857 71.4665C144.857 91.9606 138.487 109.131 125.746 122.979C113.19 136.641 97.4022 143.473 78.3834 143.473C61.211 143.473 47.547 137.934 37.3914 126.856V190H0V3.06045H34.3447V20.2312C43.7617 6.75308 58.4413 0.0140223 78.3834 0.0140223C97.4022 0.0140223 113.19 6.8454 125.746 20.5081ZM106.912 71.7434C106.912 60.4809 103.588 51.3416 96.9406 44.3256C90.2932 37.3096 81.7994 33.8016 71.459 33.8016C61.488 33.8016 53.1788 37.125 46.5315 43.7717C40.0688 50.4185 36.8374 59.6501 36.8374 71.4665C36.8374 83.2829 40.0688 92.6068 46.5315 99.4382C53.1788 106.085 61.488 109.408 71.459 109.408C81.6147 109.408 90.0162 105.9 96.6636 98.8843C103.496 91.8683 106.912 82.8213 106.912 71.7434Z" fill="white"/>
             <path d="M258.39 3.06045V36.0172H248.419C236.971 36.0172 227.923 39.0636 221.275 45.1565C214.813 51.2493 211.581 60.1116 211.581 71.7434V140.149H174.19V3.06045H208.535V19.4004C218.136 7.39929 230.693 1.39876 246.203 1.39876C250.819 1.39876 254.882 1.95265 258.39 3.06045Z" fill="white"/>
             <path d="M271.111 71.4665C270.742 51.8955 277.851 35.0017 292.438 20.7851C307.025 6.56845 324.382 -0.355236 344.509 0.0140223C364.636 -0.355236 381.993 6.56845 396.58 20.7851C411.352 35.0017 418.553 51.8955 418.184 71.4665C418.553 91.0374 411.352 108.024 396.58 122.425C381.808 136.641 364.359 143.565 344.232 143.196C324.105 143.565 306.748 136.641 292.161 122.425C277.758 108.024 270.742 91.0374 271.111 71.4665ZM369.714 98.3304C376.546 91.3144 379.962 82.4521 379.962 71.7434C379.962 61.0348 376.546 52.0802 369.714 44.8795C363.066 37.6789 354.665 34.0786 344.509 34.0786C334.169 34.0786 325.675 37.6789 319.027 44.8795C312.38 51.8955 309.056 60.8502 309.056 71.7434C309.056 82.4521 312.38 91.3144 319.027 98.3304C325.675 105.346 334.169 108.854 344.509 108.854C354.665 108.854 363.066 105.346 369.714 98.3304Z" fill="white"/>
@@ -168,53 +230,114 @@
           </svg>
         </div>
       </div>
+
     </div>
   </section>
 
+  <section class="diagram-section">
+    <img src="../assets/images/tax-pulse/design-process-diagram.png" alt="Design Process Diagram" class="diagram-img">
+  </section>
+
+  <section class="understand-section">
+    <img src="../assets/images/tax-pulse/understand.png" alt="Understand" class="understand-img">
+  </section>
+
   <script>
-  const cl1 = document.getElementById('cl1');
-  const cl2 = document.getElementById('cl2');
-  const wDesign = document.getElementById('wDesign');
-  const wProcess = document.getElementById('wProcess');
-  const cardsSection = document.getElementById('cardsSection');
-  const photoSection = document.getElementById('photoSection');
+    const cl1 = document.getElementById('cl1');
+    const cl2 = document.getElementById('cl2');
+    const wDesign = document.getElementById('wDesign');
+    const wProcess = document.getElementById('wProcess');
+    const cardsSection = document.getElementById('cardsSection');
+    const photoSection = document.getElementById('photoSection');
+    const singlePhoto = document.getElementById('singlePhoto');
+    const textBlock = document.getElementById('textBlock');
+    const svgDesign = document.getElementById('svgDesign');
+    const svgProcess = document.getElementById('svgProcess');
 
-  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const vh = window.innerHeight;
-
-    // ── CARDS SECTION: scroll-driven parallax ──
-    const cardsTop = cardsSection.offsetTop;
-    const cardsH = cardsSection.offsetHeight - vh;
-    const cardsP = Math.max(0, Math.min(1, (scrollY - cardsTop) / cardsH));
-
-    cl1.style.transform = `translateY(${-cardsP * 120}vh)`;
-    cl2.style.transform = `translateY(${-cardsP * 80}vh)`;
-
-    // ── PHOTO SECTION: text animation ──
-    const photoTop = photoSection.offsetTop;
-    const photoH = photoSection.offsetHeight - vh;
-    const photoP = Math.max(0, Math.min(1, (scrollY - photoTop) / photoH));
-
-    if (photoP <= 0.3) {
-      wDesign.style.transition = 'none';
-      wProcess.style.transition = 'none';
-      wDesign.style.opacity = 0;
-      wProcess.style.opacity = 0;
-      wDesign.style.transform = 'translateX(-150vw)';
-      wProcess.style.transform = 'translateX(150vw)';
-    } else {
-      const t = easeOut((photoP - 0.3) / 0.7);
-      wDesign.style.transition = 'opacity 0.4s ease, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
-      wProcess.style.transition = 'opacity 0.4s ease, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
-      wDesign.style.opacity = Math.min(1, t * 2);
-      wProcess.style.opacity = Math.min(1, t * 2);
-      wDesign.style.transform = `translateX(${(1 - t) * -150}vw)`;
-      wProcess.style.transform = `translateX(${(1 - t) * 150}vw)`;
+    function setColor(t) {
+      const v = Math.round(255 * (1 - t));
+      const color = `rgb(${v},${v},${v})`;
+      svgDesign.querySelectorAll('path').forEach(p => p.setAttribute('fill', color));
+      svgProcess.querySelectorAll('path').forEach(p => p.setAttribute('fill', color));
     }
-  });
+
+    // Store the final title position so it never moves after color transition
+    let titleFinalTransform = 'translate(-50%, -50%) scale(1)';
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+
+      // CARDS
+      const cardsTop = cardsSection.offsetTop;
+      const cardsH = cardsSection.offsetHeight - vh;
+      const cardsP = Math.max(0, Math.min(1, (scrollY - cardsTop) / cardsH));
+      cl1.style.transform = `translateY(${-cardsP * 120}vh)`;
+      cl2.style.transform = `translateY(${-cardsP * 80}vh)`;
+
+      // PHOTO SECTION
+      const photoTop = photoSection.offsetTop;
+      const photoH = photoSection.offsetHeight - vh;
+      const photoP = Math.max(0, Math.min(1, (scrollY - photoTop) / photoH));
+
+      // Phase 1 (0 → 0.25): photo visible, text not yet
+      if (photoP <= 0.25) {
+        singlePhoto.style.opacity = 1;
+        textBlock.style.transform = 'translate(-50%, -50%) scale(1)';
+        wDesign.style.transition = 'none';
+        wProcess.style.transition = 'none';
+        wDesign.style.opacity = 0;
+        wProcess.style.opacity = 0;
+        wDesign.style.transform = 'translateX(-150vw)';
+        wProcess.style.transform = 'translateX(150vw)';
+        setColor(0);
+        textBlock.style.zIndex = 2;
+      }
+
+      // Phase 2 (0.25 → 0.5): text slides in on photo
+      else if (photoP <= 0.5) {
+        const t = easeOut((photoP - 0.25) / 0.25);
+        singlePhoto.style.opacity = 1;
+        textBlock.style.transform = 'translate(-50%, -50%) scale(1)';
+        wDesign.style.transition = 'opacity 0.4s ease, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
+        wProcess.style.transition = 'opacity 0.4s ease, transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)';
+        wDesign.style.opacity = Math.min(1, t * 2);
+        wProcess.style.opacity = Math.min(1, t * 2);
+        wDesign.style.transform = `translateX(${(1 - t) * -150}vw)`;
+        wProcess.style.transform = `translateX(${(1 - t) * 150}vw)`;
+        setColor(0);
+      }
+
+      // Phase 3 (0.5 → 0.75): photo fades out, text scales down + color white→black
+      else if (photoP <= 0.75) {
+        const t = easeOut((photoP - 0.5) / 0.25);
+        singlePhoto.style.opacity = 1 - t;
+        wDesign.style.transition = 'none';
+        wProcess.style.transition = 'none';
+        wDesign.style.opacity = 1;
+        wProcess.style.opacity = 1;
+        wDesign.style.transform = 'translateX(0)';
+        wProcess.style.transform = 'translateX(0)';
+        const scale = 1 - t * 0.55;
+        const moveUp = -t * 15;
+        textBlock.style.transform = `translate(-50%, calc(-50% + ${moveUp}vh)) scale(${scale})`;
+        setColor(t);
+      }
+
+      // Phase 4 (0.75 → 1): title settled, diagram fades in below
+      else {
+        const t = easeOut((photoP - 0.75) / 0.25);
+        singlePhoto.style.opacity = 0;
+        wDesign.style.opacity = 1;
+        wProcess.style.opacity = 1;
+        wDesign.style.transform = 'translateX(0)';
+        wProcess.style.transform = 'translateX(0)';
+        textBlock.style.transform = 'translate(-50%, calc(-50% - 15vh)) scale(0.45)';
+        setColor(1);
+      }
+    }, { passive: true });
   </script>
 
 </body>
