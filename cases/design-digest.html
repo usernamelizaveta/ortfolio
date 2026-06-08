@@ -121,8 +121,8 @@
     function applyTransform() {
       const totalW = img.naturalWidth * SCALE;
       const totalH = img.naturalHeight * SCALE;
-      tx = clamp(tx, -(totalW - window.innerWidth + 100), 100);
-      ty = clamp(ty, -(totalH - window.innerHeight + 100), 100);
+      tx = clamp(tx, -(totalW - window.innerWidth), 0);
+      ty = clamp(ty, -(totalH - window.innerHeight), 0);
       inner.style.transform = `translate(${tx}px, ${ty}px)`;
     }
 
