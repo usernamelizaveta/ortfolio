@@ -64,7 +64,7 @@
     /* ── SECTION 2: PHOTO + TEXT + DIAGRAM (UNIFIED) ── */
     .photo-section {
       position: relative;
-      height: 200vh;
+      height: 250vh;
       background: #fff;
     }
 
@@ -73,7 +73,7 @@
       top: 0;
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .photo-white-bg {
@@ -131,8 +131,6 @@
       opacity: 0;
       pointer-events: none;
       top: 52%;
-      max-height: 45vh;
-      overflow: hidden;
     }
 
     .photo-diagram img {
@@ -145,23 +143,6 @@
 
     #wDesign  { transform: translateX(-150vw); opacity: 0; }
     #wProcess { transform: translateX(150vw);  opacity: 0; }
-
-    .diagram-section {
-      width: 100%;
-      background: #fff;
-      padding: 80px;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .diagram-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      max-width: 1400px;
-    }
 
     .understand-section {
       width: 100%;
@@ -231,11 +212,11 @@
         </div>
       </div>
 
-    </div>
-  </section>
+      <div class="photo-diagram" id="photoDiagram">
+        <img src="../assets/images/tax-pulse/design-process-diagram.png" alt="Design Process Diagram">
+      </div>
 
-  <section class="diagram-section">
-    <img src="../assets/images/tax-pulse/design-process-diagram.png" alt="Design Process Diagram" class="diagram-img">
+    </div>
   </section>
 
   <section class="understand-section">
@@ -253,6 +234,7 @@
     const textBlock = document.getElementById('textBlock');
     const svgDesign = document.getElementById('svgDesign');
     const svgProcess = document.getElementById('svgProcess');
+    const photoDiagram = document.getElementById('photoDiagram');
 
     function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
@@ -294,6 +276,8 @@
         wProcess.style.transform = 'translateX(150vw)';
         setColor(0);
         textBlock.style.zIndex = 2;
+        photoDiagram.style.opacity = 0;
+        photoDiagram.style.pointerEvents = 'none';
       }
 
       // Phase 2 (0.25 → 0.5): text slides in on photo
@@ -308,6 +292,8 @@
         wDesign.style.transform = `translateX(${(1 - t) * -150}vw)`;
         wProcess.style.transform = `translateX(${(1 - t) * 150}vw)`;
         setColor(0);
+        photoDiagram.style.opacity = 0;
+        photoDiagram.style.pointerEvents = 'none';
       }
 
       // Phase 3 (0.5 → 0.75): photo fades out, text scales down + color white→black
@@ -324,6 +310,8 @@
         const moveUp = -t * 15;
         textBlock.style.transform = `translate(-50%, calc(-50% + ${moveUp}vh)) scale(${scale})`;
         setColor(t);
+        photoDiagram.style.opacity = 0;
+        photoDiagram.style.pointerEvents = 'none';
       }
 
       // Phase 4 (0.75 → 1): title settled, diagram fades in below
@@ -336,6 +324,8 @@
         wProcess.style.transform = 'translateX(0)';
         textBlock.style.transform = 'translate(-50%, calc(-50% - 15vh)) scale(0.45)';
         setColor(1);
+        photoDiagram.style.opacity = t;
+        photoDiagram.style.pointerEvents = t > 0.5 ? 'auto' : 'none';
       }
     }, { passive: true });
   </script>
